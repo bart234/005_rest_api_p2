@@ -1,7 +1,8 @@
 from django.urls import path
-from .views import ListPersons
-
+from rest_framework.urlpatterns import format_suffix_patterns
+from movies import views
 
 urlpatterns = [
-    path('p/', ListPersons.as_view(), name="person-all")
+    path('api/', views.ListPersons.as_view()),
+    path('api/<int:pk>/', views.DetailPerson.as_view()),
 ]
